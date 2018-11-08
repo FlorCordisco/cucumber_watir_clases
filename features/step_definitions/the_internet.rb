@@ -7,7 +7,15 @@ Given("I go to the-internet.herokuapp") do
 end 
  
 And(/^I click in "([^"]*)"$/) do |argumento| 
-	@sub_page = @browser.send(argumento.downcase)
+	origin = argumento.clone
+	origin.downcase!
+      origin.tr!(' ', '_')
+      origin.tr!('/', '_')
+      origin.tr!('-', '_')
+      origin.rstrip!
+
+      origin
+      @sub_page = @browser.send(origin)
 end
 
 And("I distil the second item") do 
@@ -16,7 +24,6 @@ end
 
 Then("I check that the items are distilled") do 
 	@sub_page.check 
-	#@browser.close
 end
 
 
@@ -30,7 +37,6 @@ end
 
 Then("I check that items are distilled") do 
 	@sub_page.chequear
-	#@browser.close
 end
 
 
@@ -40,5 +46,19 @@ end
 
 Then("I checked to see the user and the profile link") do 
 	@sub_page.checked
-	#@browser.close
 end
+
+
+And("I check the first image and the text are present") do
+	@sub_page.chequear
+end
+    
+And("I refresh the page") do
+	@sub_page.refresh
+end
+
+Then("I checked that the first image and the first text are different") do
+	@sub_page.comprobar
+end
+
+

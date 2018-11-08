@@ -28,7 +28,13 @@ class TheInternet < BrowserContainer
        Hovers.new(@driver)
     end
 
-    def close
-      @driver.close
+    def dynamic_content
+      @driver.a(text: 'Dynamic Content').click
+      Dynamic.new(@driver)
     end
+
+    def close
+        @driver.close
+    end
+
 end
