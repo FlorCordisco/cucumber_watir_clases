@@ -1,4 +1,5 @@
 require 'watir'
+require 'rspec'
 
 Given("I go to the-internet.herokuapp") do 
 	@browser = TheInternet.new(Watir::Browser.new)
@@ -16,6 +17,7 @@ And(/^I click in "([^"]*)"$/) do |argumento|
 
       origin
       @sub_page = @browser.send(origin)
+      sleep 3
 end
 
 And("I distil the second item") do 
@@ -61,4 +63,40 @@ Then("I checked that the first image and the first text are different") do
 	@sub_page.comprobar
 end
 
+#
+And("I check the checkbox is present") do
+	@sub_page.checkbox.present?.should be true
+end
 
+And("I click on the remove button") do
+	@sub_page.button_remove.click
+	sleep 5
+end
+
+And("I check the checkbox is not present") do
+	@sub_page.checkbox.present?.should be false
+end 
+
+And("I click on the add button") do
+	@sub_page.button_add.click
+	sleep 5
+end
+
+#
+And("I check the field is disabled") do
+	@sub_page.field.disabled?.should be true
+end
+
+And("I click on the enable button") do
+	@sub_page.enable_button.click
+	sleep 5
+end
+
+And("I check the field is enabled") do
+	@sub_page.field.enabled?.should be true
+end
+
+And("I click on the disable button") do
+	@sub_page.disable_button.click
+	sleep 5
+end

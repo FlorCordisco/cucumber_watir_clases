@@ -33,6 +33,11 @@ class TheInternet < BrowserContainer
       Dynamic.new(@driver)
     end
 
+    def dynamic_controls
+      @driver.a(text: 'Dynamic Controls').click
+      DynamicControls.new(@driver)
+    end  
+
     def close
         @driver.close
     end

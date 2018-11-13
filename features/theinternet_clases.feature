@@ -27,13 +27,16 @@ Feature: The internet herokuapp test
 
   Scenario: Dynamic Controls test
     And I click in "Dynamic Controls"
-    And I check that this checkbox is present
+    And I check the checkbox is present
     And I click on the remove button
-    And I check that checkbox is not present 
-    And I click on the remove add
-    And I check that the checkbox is restored
-    And I check that the field under the title enable / disable is disabled
+    And I check the checkbox is not present 
+    And I click on the add button
+    Then I check the checkbox is present
+
+  Scenario: Dynamic Controls test two
+    And I click in "Dynamic Controls"
+    And I check the field is disabled
     And I click on the enable button
-    And I check that is enabled
+    And I check the field is enabled
     And I click on the disable button
-    Then I check that is disable
+    Then I check the field is disabled
