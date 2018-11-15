@@ -40,3 +40,8 @@ Feature: The internet herokuapp test
     And I check the field is enabled
     And I click on the disable button
     Then I check the field is disabled
+
+  Scenario: Horizontal Slider test
+    And I click in "Horizontal Slider"
+    And I click on the bar
+    Then I press the right button of the keyboard until the value indicates five

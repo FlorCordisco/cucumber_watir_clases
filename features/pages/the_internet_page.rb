@@ -36,7 +36,12 @@ class TheInternet < BrowserContainer
     def dynamic_controls
       @driver.a(text: 'Dynamic Controls').click
       DynamicControls.new(@driver)
-    end  
+    end 
+
+    def horizontal_slider
+      @driver.a(text: 'Horizontal Slider').click
+      HorizontalSlider.new(@driver)
+    end
 
     def close
         @driver.close

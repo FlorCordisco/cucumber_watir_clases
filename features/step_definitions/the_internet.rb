@@ -100,3 +100,18 @@ And("I click on the disable button") do
 	@sub_page.disable_button.click
 	sleep 5
 end
+
+And("I click on the bar") do
+	@sub_page.bar.click
+	sleep 3
+end
+    
+Then("I press the right button of the keyboard until the value indicates five") do
+	i = 0
+	loop do
+  		i+=1
+  		@sub_page.bar.send_keys(:arrow_right)
+		sleep 3
+  		break if i==5
+	end
+end
