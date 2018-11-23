@@ -17,5 +17,5 @@ steps:
     gem install rspec
   displayName: 'cucumber watir install'
 
-- script: cucumber
+- script: cucumber \features
   displayName: 'cucumber run'
