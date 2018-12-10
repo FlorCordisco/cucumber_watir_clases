@@ -115,3 +115,16 @@ Then("I press the right button of the keyboard until the value indicates five") 
   		break if i==5
 	end
 end
+
+
+And(/^I check that the last name "([^"]*)" has "([^"]*)" in the "([^"]*)" column$/) do |lastname, data, head| 
+	#puts @sub_page.column(head).text
+	#puts @sub_page.row(lastname).text
+	
+
+	headers = @sub_page.table.tr.ths.collect{ |x| x.text }
+	index = headers.index(head)
+
+	puts (@sub_page.row(lastname)[index].text == data).should be true
+end
+

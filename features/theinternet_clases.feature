@@ -45,3 +45,10 @@ Feature: The internet herokuapp test
     And I click in "Horizontal Slider"
     And I click on the bar
     Then I press the right button of the keyboard until the value indicates five
+
+  Scenario: Sortable Data Tables test
+    And I click in "Sortable Data Tables"
+    And I check that the last name "Smith" has "http://www.jsmith.com" in the "Web Site" column
+    And I check that the last name "Bach" has "$51.00" in the "Due" column
+    And I check that the last name "Doe" has "Jason" in the "First Name" column
+    Then I check that the last name "Conway" has "tconway@earthlink.net" in the "Email" column

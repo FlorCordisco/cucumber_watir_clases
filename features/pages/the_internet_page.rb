@@ -43,6 +43,11 @@ class TheInternet < BrowserContainer
       HorizontalSlider.new(@driver)
     end
 
+    def sortable_data_tables
+      @driver.a(text: 'Sortable Data Tables').click
+      SortableDataTables.new(@driver)      
+    end
+
     def close
         @driver.close
     end
